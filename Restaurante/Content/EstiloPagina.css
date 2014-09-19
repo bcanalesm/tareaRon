@@ -1,6 +1,8 @@
 ﻿body {
+    
 }
-#fondo-radial {
-    background-position: center center;
-    background: radial-gradient(ellipse, #black, #white);
+#cabecera{
+    
+    color : blue;
+
 }
