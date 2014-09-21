@@ -1,0 +1,28 @@
+﻿* { margin: 0; padding: 0; }/*Quitamos unas propiedades que por defecto traen los navegadores y las ponemos en “0”*/ 
+html, body { height: 100%; }
+
+#delimitador {
+ width: 100%;
+margin: auto;
+height: auto;
+min-height:800px;
+
+}
+
+#cabecera{
+  color: blue;
+text-align: right;
+background-image: url("../Content/backhead2.svg");
+background-size: 100%;
+/*padding-top: 20px;
+padding-bottom: 20px;*/
+   
+}
+
+#footer {
+    background-image: url("../Content/backhead2.svg");
+    background-size: 100%;
+    position: relative;
+     /*margin-top: -50px;*/ /* altura en px del footer con valor negativo */ 
+    height: 50px; /* Altura del Footer en px*/
+}
