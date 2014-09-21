@@ -8,12 +8,23 @@ namespace Restaurante.Controllers
 {
     public class MaestroController : Controller
     {
+        public Restaurante.Models.nidevs00_restauranteEntities1 bd = new Restaurante.Models.nidevs00_restauranteEntities1();
         //
         // GET: /Maestro/
 
         public ActionResult Maestro()
         {
-            return View("");
+            
+            ViewBag.Usuario = bd.Usuarios;
+
+            return View("", ViewBag);
+        }
+
+        public bool correcto(String pass) {
+
+            
+
+            return (true);
         }
 
     }

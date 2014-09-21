@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Restaurante.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="RestauranteStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Restaurante.Store.Categoria" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <EntitySet Name="Detalle_Pago" EntityType="Restaurante.Store.Detalle_Pago" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <EntitySet Name="Detalle_Pedido" EntityType="Restaurante.Store.Detalle_Pedido" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <EntitySet Name="Mesa" EntityType="Restaurante.Store.Mesa" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <EntitySet Name="PAGO" EntityType="Restaurante.Store.PAGO" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <EntitySet Name="Pedido" EntityType="Restaurante.Store.Pedido" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <EntitySet Name="Producto" EntityType="Restaurante.Store.Producto" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <EntitySet Name="Usuario" EntityType="Restaurante.Store.Usuario" store:Type="Tables" Schema="nidevs00_bdc05" />
+          <AssociationSet Name="FK__Detalle_P__IdPag__267ABA7A" Association="Restaurante.Store.FK__Detalle_P__IdPag__267ABA7A">
+            <End Role="PAGO" EntitySet="PAGO" />
+            <End Role="Detalle_Pago" EntitySet="Detalle_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalle_P__IdPed__276EDEB3" Association="Restaurante.Store.FK__Detalle_P__IdPed__276EDEB3">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Detalle_Pago" EntitySet="Detalle_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalle_P__IdPed__2D27B809" Association="Restaurante.Store.FK__Detalle_P__IdPed__2D27B809">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalle_P__IdPro__2E1BDC42" Association="Restaurante.Store.FK__Detalle_P__IdPro__2E1BDC42">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAGO__IdUsuario__239E4DCF" Association="Restaurante.Store.FK__PAGO__IdUsuario__239E4DCF">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="PAGO" EntitySet="PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pedido__IdMesa__1B0907CE" Association="Restaurante.Store.FK__Pedido__IdMesa__1B0907CE">
+            <End Role="Mesa" EntitySet="Mesa" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Producto__IdCate__182C9B23" Association="Restaurante.Store.FK__Producto__IdCate__182C9B23">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCategoria" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Detalle_Pago">
+          <Key>
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdDetalle" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdPago" Type="int" />
+          <Property Name="IdPedido" Type="int" />
+        </EntityType>
+        <EntityType Name="Detalle_Pedido">
+          <Key>
+            <PropertyRef Name="IdDetallePedido" />
+          </Key>
+          <Property Name="IdDetallePedido" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdPedido" Type="int" />
+          <Property Name="IdProducto" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="Mesa">
+          <Key>
+            <PropertyRef Name="IdMesa" />
+          </Key>
+          <Property Name="IdMesa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Capacidad" Type="int" />
+        </EntityType>
+        <EntityType Name="PAGO">
+          <Key>
+            <PropertyRef Name="IdPago" />
+          </Key>
+          <Property Name="IdPago" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPago" Type="char" MaxLength="4" />
+          <Property Name="IdUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdMesa" Type="int" />
+          <Property Name="Fecha" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Idproducto" />
+          </Key>
+          <Property Name="Idproducto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" MaxLength="40" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="IdCategoria" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" MaxLength="40" />
+          <Property Name="Login1" Type="varchar" MaxLength="20" />
+          <Property Name="Password1" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__Detalle_P__IdPag__267ABA7A">
+          <End Role="PAGO" Type="Restaurante.Store.PAGO" Multiplicity="0..1" />
+          <End Role="Detalle_Pago" Type="Restaurante.Store.Detalle_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGO">
+              <PropertyRef Name="IdPago" />
+            </Principal>
+            <Dependent Role="Detalle_Pago">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalle_P__IdPed__276EDEB3">
+          <End Role="Pedido" Type="Restaurante.Store.Pedido" Multiplicity="0..1" />
+          <End Role="Detalle_Pago" Type="Restaurante.Store.Detalle_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="Detalle_Pago">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalle_P__IdPed__2D27B809">
+          <End Role="Pedido" Type="Restaurante.Store.Pedido" Multiplicity="0..1" />
+          <End Role="Detalle_Pedido" Type="Restaurante.Store.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalle_P__IdPro__2E1BDC42">
+          <End Role="Producto" Type="Restaurante.Store.Producto" Multiplicity="0..1" />
+          <End Role="Detalle_Pedido" Type="Restaurante.Store.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Idproducto" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAGO__IdUsuario__239E4DCF">
+          <End Role="Usuario" Type="Restaurante.Store.Usuario" Multiplicity="0..1" />
+          <End Role="PAGO" Type="Restaurante.Store.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pedido__IdMesa__1B0907CE">
+          <End Role="Mesa" Type="Restaurante.Store.Mesa" Multiplicity="0..1" />
+          <End Role="Pedido" Type="Restaurante.Store.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesa">
+              <PropertyRef Name="IdMesa" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="IdMesa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Producto__IdCate__182C9B23">
+          <End Role="Categoria" Type="Restaurante.Store.Categoria" Multiplicity="0..1" />
+          <End Role="Producto" Type="Restaurante.Store.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Restaurante" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="nidevs00_restauranteEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorias" EntityType="Restaurante.Categoria" />
+          <EntitySet Name="Detalle_Pago" EntityType="Restaurante.Detalle_Pago" />
+          <EntitySet Name="Detalle_Pedido" EntityType="Restaurante.Detalle_Pedido" />
+          <EntitySet Name="Mesas" EntityType="Restaurante.Mesa" />
+          <EntitySet Name="PAGOes" EntityType="Restaurante.PAGO" />
+          <EntitySet Name="Pedidoes" EntityType="Restaurante.Pedido" />
+          <EntitySet Name="Productoes" EntityType="Restaurante.Producto" />
+          <EntitySet Name="Usuarios" EntityType="Restaurante.Usuario" />
+          <AssociationSet Name="FK__Producto__IdCate__182C9B23" Association="Restaurante.FK__Producto__IdCate__182C9B23">
+            <End Role="Categoria" EntitySet="Categorias" />
+            <End Role="Producto" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalle_P__IdPag__267ABA7A" Association="Restaurante.FK__Detalle_P__IdPag__267ABA7A">
+            <End Role="PAGO" EntitySet="PAGOes" />
+            <End Role="Detalle_Pago" EntitySet="Detalle_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalle_P__IdPed__276EDEB3" Association="Restaurante.FK__Detalle_P__IdPed__276EDEB3">
+            <End Role="Pedido" EntitySet="Pedidoes" />
+            <End Role="Detalle_Pago" EntitySet="Detalle_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Pedido_Pedido" Association="Restaurante.FK_Detalle_Pedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedidoes" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pedido__IdMesa__1B0907CE" Association="Restaurante.FK__Pedido__IdMesa__1B0907CE">
+            <End Role="Mesa" EntitySet="Mesas" />
+            <End Role="Pedido" EntitySet="Pedidoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAGO__IdUsuario__239E4DCF" Association="Restaurante.FK__PAGO__IdUsuario__239E4DCF">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="PAGO" EntitySet="PAGOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detalle_P__IdPro__2E1BDC42" Association="Restaurante.FK__Detalle_P__IdPro__2E1BDC42">
+            <End Role="Producto" EntitySet="Productoes" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCategoria" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Productoes" Relationship="Restaurante.FK__Producto__IdCate__182C9B23" FromRole="Categoria" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Detalle_Pago">
+          <Key>
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdDetalle" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPago" Type="Int32" />
+          <Property Name="IdPedido" Type="Int32" />
+          <NavigationProperty Name="PAGO" Relationship="Restaurante.FK__Detalle_P__IdPag__267ABA7A" FromRole="Detalle_Pago" ToRole="PAGO" />
+          <NavigationProperty Name="Pedido" Relationship="Restaurante.FK__Detalle_P__IdPed__276EDEB3" FromRole="Detalle_Pago" ToRole="Pedido" />
+        </EntityType>
+        <EntityType Name="Detalle_Pedido">
+          <Key>
+            <PropertyRef Name="IdDetallePedido" />
+          </Key>
+          <Property Name="IdDetallePedido" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProducto" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="IdPedido" Type="Int32" />
+          <NavigationProperty Name="Pedido" Relationship="Restaurante.FK_Detalle_Pedido_Pedido" FromRole="Detalle_Pedido" ToRole="Pedido" />
+          <NavigationProperty Name="Producto" Relationship="Restaurante.FK__Detalle_P__IdPro__2E1BDC42" FromRole="Detalle_Pedido" ToRole="Producto" />
+          </EntityType>
+        <EntityType Name="Mesa">
+          <Key>
+            <PropertyRef Name="IdMesa" />
+          </Key>
+          <Property Name="IdMesa" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacidad" Type="Int32" />
+          <NavigationProperty Name="Pedidoes" Relationship="Restaurante.FK__Pedido__IdMesa__1B0907CE" FromRole="Mesa" ToRole="Pedido" />
+        </EntityType>
+        <EntityType Name="PAGO">
+          <Key>
+            <PropertyRef Name="IdPago" />
+          </Key>
+          <Property Name="IdPago" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPago" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <NavigationProperty Name="Detalle_Pago" Relationship="Restaurante.FK__Detalle_P__IdPag__267ABA7A" FromRole="PAGO" ToRole="Detalle_Pago" />
+          <NavigationProperty Name="Usuario" Relationship="Restaurante.FK__PAGO__IdUsuario__239E4DCF" FromRole="PAGO" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMesa" Type="Int32" />
+          <Property Name="Fecha" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Detalle_Pago" Relationship="Restaurante.FK__Detalle_P__IdPed__276EDEB3" FromRole="Pedido" ToRole="Detalle_Pago" />
+          <NavigationProperty Name="Detalle_Pedido" Relationship="Restaurante.FK_Detalle_Pedido_Pedido" FromRole="Pedido" ToRole="Detalle_Pedido" />
+          <NavigationProperty Name="Mesa" Relationship="Restaurante.FK__Pedido__IdMesa__1B0907CE" FromRole="Pedido" ToRole="Mesa" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Idproducto" />
+          </Key>
+          <Property Name="Idproducto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="IdCategoria" Type="Int32" />
+          <NavigationProperty Name="Categoria" Relationship="Restaurante.FK__Producto__IdCate__182C9B23" FromRole="Producto" ToRole="Categoria" />
+          <NavigationProperty Name="Detalle_Pedido" Relationship="Restaurante.FK__Detalle_P__IdPro__2E1BDC42" FromRole="Producto" ToRole="Detalle_Pedido" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="Login1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Password1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PAGOes" Relationship="Restaurante.FK__PAGO__IdUsuario__239E4DCF" FromRole="Usuario" ToRole="PAGO" />
+        </EntityType>
+        <Association Name="FK__Producto__IdCate__182C9B23">
+          <End Role="Categoria" Type="Restaurante.Categoria" Multiplicity="0..1" />
+          <End Role="Producto" Type="Restaurante.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalle_P__IdPag__267ABA7A">
+          <End Role="PAGO" Type="Restaurante.PAGO" Multiplicity="0..1" />
+          <End Role="Detalle_Pago" Type="Restaurante.Detalle_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGO">
+              <PropertyRef Name="IdPago" />
+            </Principal>
+            <Dependent Role="Detalle_Pago">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalle_P__IdPed__276EDEB3">
+          <End Role="Pedido" Type="Restaurante.Pedido" Multiplicity="0..1" />
+          <End Role="Detalle_Pago" Type="Restaurante.Detalle_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="Detalle_Pago">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_Pedido_Pedido">
+          <End Role="Pedido" Type="Restaurante.Pedido" Multiplicity="0..1" />
+          <End Role="Detalle_Pedido" Type="Restaurante.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pedido__IdMesa__1B0907CE">
+          <End Role="Mesa" Type="Restaurante.Mesa" Multiplicity="0..1" />
+          <End Role="Pedido" Type="Restaurante.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesa">
+              <PropertyRef Name="IdMesa" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="IdMesa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAGO__IdUsuario__239E4DCF">
+          <End Role="Usuario" Type="Restaurante.Usuario" Multiplicity="0..1" />
+          <End Role="PAGO" Type="Restaurante.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detalle_P__IdPro__2E1BDC42">
+          <End Type="Restaurante.Producto" Role="Producto" Multiplicity="0..1" />
+          <End Type="Restaurante.Detalle_Pedido" Role="Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Idproducto" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RestauranteStoreContainer" CdmEntityContainer="nidevs00_restauranteEntities1">
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="Restaurante.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle_Pago">
+            <EntityTypeMapping TypeName="Restaurante.Detalle_Pago">
+              <MappingFragment StoreEntitySet="Detalle_Pago">
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle_Pedido">
+            <EntityTypeMapping TypeName="Restaurante.Detalle_Pedido">
+              <MappingFragment StoreEntitySet="Detalle_Pedido">
+                <ScalarProperty Name="IdDetallePedido" ColumnName="IdDetallePedido" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesas">
+            <EntityTypeMapping TypeName="Restaurante.Mesa">
+              <MappingFragment StoreEntitySet="Mesa">
+                <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+                <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGOes">
+            <EntityTypeMapping TypeName="Restaurante.PAGO">
+              <MappingFragment StoreEntitySet="PAGO">
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+                <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedidoes">
+            <EntityTypeMapping TypeName="Restaurante.Pedido">
+              <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+                <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productoes">
+            <EntityTypeMapping TypeName="Restaurante.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Idproducto" ColumnName="Idproducto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Restaurante.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Login1" ColumnName="Login1" />
+                <ScalarProperty Name="Password1" ColumnName="Password1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
