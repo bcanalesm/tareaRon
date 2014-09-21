@@ -127,13 +127,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MaestroController.cs" />
+    <Compile Include="Controllers\MesaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\backhead2.svg" />
     <Content Include="Content\EstiloPagina.css" />
+    <Content Include="Content\head.svg" />
+    <Content Include="Content\mesa.svg" />
+    <Content Include="Content\mesero.svg" />
+    <Content Include="Content\PAGO.svg" />
+    <Content Include="Content\producto.svg" />
+    <Content Include="Content\restaurantes.svg" />
+    <Content Include="Content\restaurante_logo.svg" />
+    <Content Include="Content\TARJETA.svg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -188,6 +198,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\usuario.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Properties\PublishProfiles\restdorado.nica-devs.com - Web Deploy.pubxml" />
@@ -219,6 +230,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Maestro\Maestro.cshtml" />
+    <Content Include="Views\Mesa\Mesa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
