@@ -12,19 +12,10 @@ namespace Restaurante.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class RolxUsuario
     {
-        public Usuario()
-        {
-            this.PAGOes = new HashSet<PAGO>();
-        }
-    
-        public int IdUsuario { get; set; }
-        public string Login1 { get; set; }
-        public string Password1 { get; set; }
-        public Nullable<int> idPersona { get; set; }
-    
-        public virtual ICollection<PAGO> PAGOes { get; set; }
-        public virtual Persona Persona { get; set; }
+        public int idUsuario { get; set; }
+        public int idRol { get; set; }
+        public Nullable<bool> estado { get; set; }
     }
 }

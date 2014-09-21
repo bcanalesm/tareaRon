@@ -13,10 +13,10 @@ namespace Restaurante.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class nidevs00_restauranteEntities1 : DbContext
+    public partial class nidevs00_restauranteEntities2 : DbContext
     {
-        public nidevs00_restauranteEntities1()
-            : base("name=nidevs00_restauranteEntities1")
+        public nidevs00_restauranteEntities2()
+            : base("name=nidevs00_restauranteEntities2")
         {
         }
     
@@ -33,5 +33,8 @@ namespace Restaurante.Models
         public DbSet<Pedido> Pedidoes { get; set; }
         public DbSet<Producto> Productoes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Persona> Personas { get; set; }
+        public DbSet<Rol> Rols { get; set; }
+        public DbSet<RolxUsuario> RolxUsuarios { get; set; }
     }
 }

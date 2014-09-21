@@ -15,9 +15,9 @@ namespace Restaurante.Models
     public partial class Detalle_Pedido
     {
         public int IdDetallePedido { get; set; }
+        public Nullable<int> IdPedido { get; set; }
         public Nullable<int> IdProducto { get; set; }
         public Nullable<int> Cantidad { get; set; }
-        public Nullable<int> IdPedido { get; set; }
     
         public virtual Pedido Pedido { get; set; }
         public virtual Producto Producto { get; set; }

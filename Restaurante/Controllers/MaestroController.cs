@@ -8,23 +8,48 @@ namespace Restaurante.Controllers
 {
     public class MaestroController : Controller
     {
-        public Restaurante.Models.nidevs00_restauranteEntities1 bd = new Restaurante.Models.nidevs00_restauranteEntities1();
+        public Restaurante.Models.nidevs00_restauranteEntities2 bd = new Restaurante.Models.nidevs00_restauranteEntities2();
         //
         // GET: /Maestro/
 
         public ActionResult Maestro()
         {
-            
-            ViewBag.Usuario = bd.Usuarios;
+            Models.Usuario user = new Models.Usuario();
+            //user.IdUsuario = 1;
+            //user.Login1 = "zD";
+            //user.Nombre = "Coyotus";
+            //user.Password1 = "12";
 
-            return View("", ViewBag);
+            //bd.Usuarios.Add(user);
+            //bd.SaveChanges();
+
+
+            return View("Maestro");
         }
 
-        public bool correcto(String pass) {
+        public bool login(String pass) {
 
-            
+            var user = bd.Usuarios.Find(pass);
 
+            if (user == null) {
+                return (false);
+            }
             return (true);
+        }
+
+        public ActionResult Principal()
+        {
+            Models.Usuario user = new Models.Usuario();
+            //user.IdUsuario = 1;
+            //user.Login1 = "zD";
+            //user.Nombre = "Coyotus";
+            //user.Password1 = "12";
+
+            //bd.Usuarios.Add(user);
+            //bd.SaveChanges();
+
+
+            return View("Principal" );
         }
 
     }
