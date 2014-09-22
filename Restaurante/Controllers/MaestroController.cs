@@ -27,12 +27,12 @@ namespace Restaurante.Controllers
             return View("Maestro");
         }
 
-        public bool login(String pass) {
+        public bool login(String pass,int Rol) {
              Models.Usuario usuario = new Models.Usuario();
           
             //var user = bd.Usuarios.Find(pass);
 
-            var user1 = bd.Database.SqlQuery<Models.Usuario>("Select * from Usuario where Password1 = '"+pass+"' ");
+             var user1 = bd.Database.SqlQuery<Models.Usuario>("SELECT * FROM [nidevs00_bdc05].[Usuario] U INNER JOIN [nidevs00_ron09].[RolxUsuario] RU ON RU.idUsuario = U.idUsuario INNER JOIN [nidevs00_ron09].[Rol] RO ON RO.idRol = RU.idRol  where Password1 = '" + pass + "'  AND RO.idRol = " + Rol);
             
 
             if (user1.ToList().FirstOrDefault() == null)
@@ -76,6 +76,22 @@ namespace Restaurante.Controllers
         public ActionResult Crear()
         {
             return View("Crear");
+        }
+        public ActionResult Usuario()
+        {
+            return View("Usuario");
+        }
+        public ActionResult Producto()
+        {
+            return View("Producto");
+        }
+        public ActionResult Pedido()
+        {
+            return View("Pedido");
+        }
+        public ActionResult Pago()
+        {
+            return View("Pago");
         }
 
     }
