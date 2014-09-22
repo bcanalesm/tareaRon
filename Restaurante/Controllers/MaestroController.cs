@@ -72,6 +72,22 @@ namespace Restaurante.Controllers
         {
             return View("Crear");
         }
+        public ActionResult Usuario()
+        {
+            return View("Usuario");
+        }
+        public ActionResult Producto()
+        {
+            return View("Producto");
+        }
+        public ActionResult Pedido()
+        {
+            return View("Pedido");
+        }
+        public ActionResult Pago()
+        {
+            return View("Pago");
+        }
 
     }
 }
