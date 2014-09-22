@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Restaurante.Controllers
 {
@@ -75,15 +76,20 @@ namespace Restaurante.Controllers
 
         }
 
-
-
-
-
-    //    public String obtenerMesas(){
         
-            
-   //     }
 
+        public String obtenerMesas()
+        {
+
+            JavaScriptSerializer ts = new JavaScriptSerializer();
+
+            var mesas = bd.Mesas.ToList();
+
+            var json = ts.Serialize(mesas);
+
+            return json;
+
+        }
 
         public ActionResult Principal()
         {
