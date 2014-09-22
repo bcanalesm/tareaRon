@@ -57,6 +57,11 @@ namespace Restaurante.Controllers
 
         }
 
+        public String obtenerMesas(){
+        
+            
+        }
+
 
         public ActionResult Principal()
         {
