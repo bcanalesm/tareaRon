@@ -28,28 +28,49 @@ namespace Restaurante.Controllers
         }
 
         public bool login(String pass) {
+             Models.Usuario usuario = new Models.Usuario();
+          
+            //var user = bd.Usuarios.Find(pass);
 
-            var user = bd.Usuarios.Find(pass);
+            var user1 = bd.Database.SqlQuery<Models.Usuario>("Select * from Usuario where Password1 = '"+pass+"' ");
+            
 
-            if (user == null) {
+            if (user1.ToList().FirstOrDefault() == null)
+            {
                 return (false);
             }
             return (true);
         }
 
+
+        public bool CrearMesa(int id, int cantidad) {
+            Models.Mesa mesa = new Models.Mesa();
+
+            mesa.IdMesa = id;
+            mesa.Capacidad = cantidad;
+
+            bd.Mesas.Add(mesa);
+
+            bd.SaveChanges();
+
+            return true;
+
+        }
+
+
         public ActionResult Principal()
         {
-            Models.Usuario user = new Models.Usuario();
-            //user.IdUsuario = 1;
-            //user.Login1 = "zD";
-            //user.Nombre = "Coyotus";
-            //user.Password1 = "12";
+           return View("Principal" );
+        }
 
-            //bd.Usuarios.Add(user);
-            //bd.SaveChanges();
+        public ActionResult Mesa()
+        {
+            return View("Mesa");
+        }
 
-
-            return View("Principal" );
+        public ActionResult Crear()
+        {
+            return View("Crear");
         }
 
     }

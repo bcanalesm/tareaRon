@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Restaurante.Models.Mesa>
+
+@{
+    ViewBag.Title = "Restaurante El Dorado";
+}
+
+<h2>Mesa</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Crear")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdMesa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacidad)
+        </th>
+        <th></th>
+    </tr>
+    @{
+    try{
+foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdMesa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacidad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}  
+    }
+        catch(NullReferenceException n){
+    }
+    }
+</table>

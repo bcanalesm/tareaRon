@@ -285,6 +285,8 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\RestaurantePrincipal\Crear.js" />
+    <Content Include="Scripts\RestaurantePrincipal\Pruebausuario.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -300,6 +302,8 @@
     <Content Include="Views\Maestro\Maestro.cshtml" />
     <Content Include="Views\Mesa\Mesa.cshtml" />
     <Content Include="Views\Maestro\Principal.cshtml" />
+    <Content Include="Views\Maestro\Mesa.cshtml" />
+    <Content Include="Views\Maestro\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

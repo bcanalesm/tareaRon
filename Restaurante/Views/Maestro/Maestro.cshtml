@@ -3,7 +3,9 @@
 }
 
 <header>
-   
+    <link href="~/Content/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/minified/jquery.ui.core.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/minified/jquery.ui.theme.min.css" rel="stylesheet" />
     <link href="~/Content/EstiloPagina.css" rel="stylesheet" />
    
 </header>
@@ -12,26 +14,26 @@
    
     <div style="margin-left: 42%; margin-top: 15%;">
         <div>
-                <label>Usuario</label> 
+                <label>Usuario</label>      
                 <select id="select">
-                    <option>
+                    <option value="1">
                         Administrador
                     </option>
-                    <option>
+                    <option value="2">
                         Mesero
                     </option>
-                    <option>
+                    <option value="3">
                         Cocinero
                     </option>
                 </select>
         </div>
         <div style="margin-top: 7px; margin-bottom: 7px;">
                 <label>Contraseña</label> 
-                <input value ="       ">
+                <input id="pass" value ="       ">
              
         </div>
         <div>
-              <button>
+              <button id="iPagina">
                 Ingresar
               </button>
               <button>
@@ -41,7 +43,5 @@
     </div>
 
 </body>
-
-<footer>
-
-</footer>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/RestaurantePrincipal/Pruebausuario.js"></script>
