@@ -286,6 +286,7 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\RestaurantePrincipal\Crear.js" />
+    <Content Include="Scripts\RestaurantePrincipal\mostrarMesas.js" />
     <Content Include="Scripts\RestaurantePrincipal\MostrarGestiones.js" />
     <Content Include="Scripts\RestaurantePrincipal\Pruebausuario.js" />
     <Content Include="Scripts\_references.js" />
