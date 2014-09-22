@@ -57,10 +57,32 @@ namespace Restaurante.Controllers
 
         }
 
-        public String obtenerMesas(){
+
+        public bool crearProducto(int id, String Nombre,float Precio,int categoria)
+        {
+            Models.Producto pro = new Models.Producto();
+
+            pro.Idproducto = id;
+            pro.Nombre = Nombre;
+            pro.Precio = Precio;
+            pro.IdCategoria = categoria;
+
+            bd.Productoes.Add(pro);
+
+            bd.SaveChanges();
+
+            return true;
+
+        }
+
+
+
+
+
+    //    public String obtenerMesas(){
         
             
-        }
+   //     }
 
 
         public ActionResult Principal()
