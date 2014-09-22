@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace Restaurante.Controllers
 {
@@ -50,7 +49,7 @@ namespace Restaurante.Controllers
             mesa.IdMesa = id;
             mesa.Capacidad = cantidad;
 
-            bd.Mesas.Add(mesa);            
+            bd.Mesas.Add(mesa);
 
             bd.SaveChanges();
 
@@ -59,14 +58,7 @@ namespace Restaurante.Controllers
         }
 
         public String obtenerMesas(){
-
-            JavaScriptSerializer ts = new JavaScriptSerializer();
-
-            var mesas = bd.Mesas.ToList();
-
-            var json = ts.Serialize(mesas);
-
-            return json;
+        
             
         }
 
