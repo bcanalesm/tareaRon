@@ -305,6 +305,10 @@
     <Content Include="Views\Maestro\Principal.cshtml" />
     <Content Include="Views\Maestro\Mesa.cshtml" />
     <Content Include="Views\Maestro\Crear.cshtml" />
+    <Content Include="Views\Maestro\Pago.cshtml" />
+    <Content Include="Views\Maestro\Pedido.cshtml" />
+    <Content Include="Views\Maestro\Producto.cshtml" />
+    <Content Include="Views\Maestro\Usuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
