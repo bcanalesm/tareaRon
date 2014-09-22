@@ -5,7 +5,7 @@ $("#iPagina").click(function () {
         url: 'Maestro/login',
         type: 'POST',
         contentType: 'application/json;',
-        data: JSON.stringify({ pass: $("#pass").val().trim() }),
+        data: JSON.stringify({ pass: $("#pass").val().trim(), Rol: $("#select").val() }),
         success: function (valid)
         {
            
