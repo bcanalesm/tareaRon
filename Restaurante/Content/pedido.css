@@ -5,6 +5,15 @@
     margin: 0 auto -150px;
 }
 
+#iPedido
+{
+    background-color:white;
+    border:1px solid black;
+    margin-top: 4%;
+    margin-left: 20%;
+}
+
+
 #select_cat
 {
     width: 169px;
@@ -27,4 +36,20 @@
     height: 21px;
     padding-left: 25px;
     margin-left: 22px;
+}
+
+#iPedido
+{
+    width: 144px;
+    height: 21px;
+    padding-left: 25px;
+    margin-left: 22px;
+}
+
+#iAceptarPedido
+{
+    background-color:white;
+    border:1px solid black;
+    margin-top: 4%;
+    margin-left: 20%;
 }
