@@ -190,6 +190,7 @@
     <Content Include="Content\mesa.svg" />
     <Content Include="Content\mesero.svg" />
     <Content Include="Content\PAGO.svg" />
+    <Content Include="Content\pedido.css" />
     <Content Include="Content\Principal.css" />
     <Content Include="Content\producto.svg" />
     <Content Include="Content\restaurantes.svg" />

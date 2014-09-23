@@ -3,19 +3,27 @@
 @{
     ViewBag.Title = "Pedido";
 }
+<header>
 
+    <link href="~/Content/pedido.css" rel="stylesheet" />
 
-<div>
+</header>
+
+<div style="margin-left: 40%; margin-bottom: 40%;">
     <h2>Agregar Pedido</h2>
     <div>
     <div>
-        <label>Categoria</label> <select></select>
+        <label>Categoria</label> 
+        <select id="select_cat"></select>
     </div>
     <div>
-        <label>Producto</label> <select></select>
+        <label>Producto</label> 
+        <select id="select_prod">
+
+        </select>
     </div>
     <div>
-        <label>Cantidad</label> <input />
+        <label>Cantidad</label> <input id="cantidad" />
     </div>
     </div> 
 </div>

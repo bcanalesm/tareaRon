@@ -1,0 +1,30 @@
+﻿body {
+     min-height: 100%;     
+    height: auto !important;     
+    height: 100%;     
+    margin: 0 auto -150px;
+}
+
+#select_cat
+{
+    width: 169px;
+    height: 21px;
+    padding-left: 25px;
+    margin-left: 22px;
+}
+
+#select_prod
+{
+    width: 172px;
+    height: 21px;
+    padding-left: 25px;
+    margin-left: 22px;
+}
+
+#cantidad
+{
+    width: 144px;
+    height: 21px;
+    padding-left: 25px;
+    margin-left: 22px;
+}
