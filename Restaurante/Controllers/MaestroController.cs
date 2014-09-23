@@ -116,10 +116,12 @@ namespace Restaurante.Controllers
             mesa.IdMesa = id;
             mesa.Capacidad = cantidad;
 
-            //bd.Mesas.Attach(mesa);
+            bd.Mesas.Attach(mesa);
+            var entry = bd.Entry(mesa);
+            entry.Property(e => e.Capacidad).IsModified = true;
             //bd.Mesas.
                 
-            //    bd.SaveChanges();
+                bd.SaveChanges();
 
             return View("Mesa");
         }
