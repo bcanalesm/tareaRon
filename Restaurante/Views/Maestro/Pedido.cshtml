@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Restaurante.Models.Pedido>
+
+@{
+    ViewBag.Title = "Pedido";
+}
+<header>
+
+    <link href="~/Content/pedido.css" rel="stylesheet" />
+
+</header>
+
+<div style="margin-left: 40%;">
+    <h2>Agregar Pedido</h2>
+    <div>
+        <div>
+            <label>Categoria</label> 
+            <select id="select_cat"></select>
+        </div>
+        <div>
+            <label>Producto</label> 
+            <select id="select_prod"></select>
+        </div>
+        <div>
+            <label>Cantidad</label> <input id="cantidad" />
+        </div>
+        <div>
+            <button id="iPedido">
+                Agregar Pedido
+              </button>
+        </div>
+
+    </div> 
+</div>
+<div>
+    <table border="1" style="width: 27%;margin-left: 40%;margin-top: 30px;">
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th> 
+      </tr>
+      <tr>
+        <td>Pollo Frito</td>
+        <td>2</td> 
+      </tr>
+    </table>
+</div>
+<div style="margin-left: 40%; margin-top: 18px">
+    <label>
+    No de Mesa
+    </label>
+    <input id="Mesai"/>
+</div>
+<div style="margin-left: 33%;">
+     <button id="iAceptarPedido">
+                Aceptar
+              </button>
+     <button id="iVisualizarTicket">
+                Visualizar Ticket
+     </button>
+</div>
+
+
+<!--
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdMesa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th></th>
+    </tr>
+    
+</table>
+-->

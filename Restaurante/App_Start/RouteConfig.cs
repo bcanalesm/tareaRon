@@ -17,7 +17,16 @@ namespace Restaurante
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Maestro", action = "Maestro", id = UrlParameter.Optional }
-            );
+           
+            );  
+            
+            routes.MapRoute(
+                name: "Mesa",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Mesa", action = "Mesa", id = UrlParameter.Optional }
+                );
+            
+            
         }
     }
 }

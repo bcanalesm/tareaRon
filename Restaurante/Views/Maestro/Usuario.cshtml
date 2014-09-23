@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Restaurante.Models.Usuario>
+
+@{
+    ViewBag.Title = "Usuario";
+}
+
+<h2>Usuario</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idPersona)
+        </th>
+        <th></th>
+    </tr>
+
+
+</table>

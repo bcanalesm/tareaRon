@@ -1,8 +1,29 @@
-﻿body {
-    
+﻿
+body {
+     min-height: 100%;     
+    height: auto !important;     
+    height: 100%;     
+    margin: 0 auto -150px;
 }
-#cabecera{
-    
-    color : blue;
 
+
+
+#logo {
+    position:relative;
 }
+
+button
+{
+    background-color:white;
+    border:1px solid black;
+}
+
+#select
+{
+   width: 172px;
+height: 21px;
+padding-left: 25px;
+margin-left: 22px;
+}
+
+

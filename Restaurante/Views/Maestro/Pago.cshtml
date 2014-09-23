@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Restaurante.Models.PAGO>
+
+@{
+    ViewBag.Title = "Pago";
+}
+
+<h2>Pago</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th></th>
+    </tr>
+
+}
+
+</table>
