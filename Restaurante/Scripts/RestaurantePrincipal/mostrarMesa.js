@@ -6,33 +6,32 @@ $.ajax({
     data: JSON.stringify({}),
     success: function (data) {
         var tabla = $("#Mesas");
-        var tblBody = document.createElement("tbody");
-       
-
+        
         var arreglo = JSON.parse("[" + data + "]");
         console.log(arreglo);
-
+        var fila = "<tr><td>Num Mesa</td><td>Cant Pesonas</td><td>Acciones</td></tr>";
+       
         arreglo.forEach(function (entry) {
             console.log(entry);
-            var fila = document.createElement("tr");
+            
             entry.forEach(function (datos) {
-                var columna = document.createElement("td");
-                var columna1 = document.createElement("td");
-                var textoCelda0 = document.createTextNode(datos.IdMesa);
-                var textoCelda1 = document.createTextNode(datos.Capacidad);
-                columna.appendChild(textoCelda0);
-                columna1.appendChild(textoCelda1);
+                
+                var textoCelda0 = "<tr><td  Style='text-align: center;' id='" + datos.IdMesa + "'>" + datos.IdMesa + "</td><td id='" + datos.Capacidad + "'><input id='pass' style='width:40px;text-align: center;' value ='" + datos.Capacidad + "'>" +
+                    "</td><td>" + "<a href='url' Style='margin-right:10px;'>Actualizar</a>" + "<a id='borrar" + datos.IdMesa + "' href='BorarMesa?id=" + datos.IdMesa + "'>Eliminar</a>" + "</td></tr>";
 
-                fila.appendChild(columna);
-                fila.appendChild(columna1);
-                console.log(datos.IdMesa);
+               
+                fila += textoCelda0;
+               
+               
             });
 
         });
-        tblBody.appendChild(fila);
-        tabla.appendChild(tblBody);
+   
+        tabla.append(fila);
 
     }
 });
+
+
 
 

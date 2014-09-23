@@ -44,10 +44,10 @@ namespace Restaurante.Controllers
         }
 
 
-        public bool CrearMesa(int id, int cantidad) {
+        public bool CrearMesa( int cantidad) {
             Models.Mesa mesa = new Models.Mesa();
 
-            mesa.IdMesa = id;
+            mesa.IdMesa = 1;
             mesa.Capacidad = cantidad;
 
             bd.Mesas.Add(mesa);
@@ -91,6 +91,39 @@ namespace Restaurante.Controllers
 
         }
 
+        //Esto es para los borrados de todas las vistas
+
+        public ActionResult BorarMesa(int id)
+        {
+            Models.Mesa mesa = new Models.Mesa();
+
+            mesa.IdMesa = id;
+
+            bd.Mesas.Attach(mesa);
+            bd.Mesas.Remove(mesa);
+
+            bd.SaveChanges();
+
+            return View("Mesa");
+        }
+
+
+        //Esto es para las actualizaciones
+        public ActionResult AtcualizarMesa(int id,int cantidad)
+        {
+            Models.Mesa mesa = new Models.Mesa();
+
+            mesa.IdMesa = id;
+            mesa.Capacidad = cantidad;
+
+            //bd.Mesas.Attach(mesa);
+            //bd.Mesas.
+                
+            //    bd.SaveChanges();
+
+            return View("Mesa");
+        }
+
         public ActionResult Principal()
         {
            return View("Principal" );
@@ -121,6 +154,6 @@ namespace Restaurante.Controllers
         {
             return View("Pago");
         }
-
+       
     }
 }
